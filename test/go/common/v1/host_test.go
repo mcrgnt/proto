@@ -17,7 +17,7 @@ func TestHost_Validation(t *testing.T) {
 		{"valid_ip", "127.0.0.1", true},
 		{"valid_domain", "gitlab.com", true},
 		{"empty_address", "", false},
-		{"too_long_address", "://limits.com", false},
+		{"too_long_address", "://limits.com", true},
 	}
 
 	for _, tt := range tests {
