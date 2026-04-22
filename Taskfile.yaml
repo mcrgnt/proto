@@ -1,0 +1,75 @@
+version: '3'
+
+vars:
+  BUF_IMAGE: bufbuild/buf:latest
+  GEN_GO_DIR: gen/go
+
+tasks:
+  default:
+    desc: "Полный цикл: генерация, зависимости и тесты"
+    cmds:
+      - task: generate
+      - task: tidy
+      - task: test
+
+  deps:
+    desc: "Установка необходимых инструментов"
+    cmds:
+      - go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+      - cd {{.GEN_GO_DIR}} && go get buf.build/go/protovalidate
+      - go mod download
+
+  generate:
+    desc: "Генерация кода через Docker (только если .proto изменились)"
+    sources:
+      - proto/**/*.proto
+      - buf.yaml
+    generates:
+      - gen/go/**/*.go
+    cmds:
+      - |
+        docker run --rm \
+          -v "{{.USER_WORKING_DIR}}:/workspace" \
+          -w /workspace \
+          -e BUF_CACHE_DIR=/tmp/buf-cache \
+          --user $(id -u):$(id -g) \
+          {{.BUF_IMAGE}} generate
+
+  tidy:
+    desc: "Инициализация и обновление go.mod через Docker"
+    cmds:
+      - |
+        docker run --rm \
+          -v "{{.USER_WORKING_DIR}}:/workspace" \
+          -w /workspace/gen/go \
+          -e GOCACHE=/tmp/go-cache \
+          -e GOPATH=/tmp/go-path \
+          --user $(id -u):$(id -g) \
+          golang:alpine \
+          sh -c "go mod init github.com/mcrgnt/proto/gen/go || true && go mod tidy"
+
+  test:
+    desc: "Запуск Go тестов через Docker"
+    dir: "{{.GEN_GO_DIR}}"
+    cmds:
+      - |
+        docker run --rm \
+          -v "{{.USER_WORKING_DIR}}:/workspace" \
+          -w /workspace/test/go \
+          -e GOCACHE=/tmp/go-cache \
+          -e GOPATH=/tmp/go-path \
+          --user $(id -u):$(id -g) \
+          golang:alpine \
+          go test -v ./...
+
+  check-diff:
+    desc: "Проверка, что сгенерированный код соответствует исходникам (для CI)"
+    cmds:
+      - task: generate
+      - task: tidy
+      - |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "Ошибка: Сгенерированный код устарел. Запустите 'task' локально и закоммитьте изменения."
+          git status
+          exit 1
+        fi
