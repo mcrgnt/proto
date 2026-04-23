@@ -1,0 +1,8 @@
+syntax = "proto3";
+package common.v1;
+
+import "buf/validate/validate.proto";
+
+message Host {
+  string address = 1 [(buf.validate.field).string.address = true];
+}

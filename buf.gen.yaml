@@ -1,0 +1,18 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      # Замените на ваш реальный путь
+      value: ://gitlab.com 
+  disable:
+    # Это критически важно для работы protovalidate
+    - file_option: go_package
+      module: buf.build/bufbuild/protovalidate
+
+plugins:
+  - remote: buf.build/protocolbuffers/go:v1.34.1
+    out: gen/go
+    opt:
+      - paths=source_relative
