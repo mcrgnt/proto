@@ -22,7 +22,7 @@ func TestHost_Validation(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			testutils.ValidateCase(t, &commonv1.Host{Address: tt.addr}, tt.passed)
+			testutils.ValidateCase(t, &commonv1.Host{Value: tt.addr}, tt.passed)
 		})
 	}
 }
