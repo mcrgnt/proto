@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package logger.v1;
+
+import "buf/validate/validate.proto";
+
+message FormatConfig {
+  // value определяет формат сообщений.
+  // ВНИМАНИЕ: Поддерживается только нижний регистр (lowercase).
+  // Допустимые значения: "json", "text".
+  string value = 1 [(buf.validate.field).string = {
+    in: ["json", "text"],
+    lowercase: true
+  }];
+}

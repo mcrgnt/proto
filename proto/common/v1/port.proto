@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package common.v1;
 
 import "buf/validate/validate.proto";

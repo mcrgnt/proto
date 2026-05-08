@@ -14,9 +14,11 @@ tasks:
 
   deps:
     desc: "Установка необходимых инструментов"
+    dir: "{{.GEN_GO_DIR}}"
     cmds:
+      # go
       - go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-      - cd {{.GEN_GO_DIR}} && go get buf.build/go/protovalidate
+      - go get buf.build/go/protovalidate
       - go mod download
 
   generate:
@@ -33,7 +35,7 @@ tasks:
           -w /workspace \
           -e BUF_CACHE_DIR=/tmp/buf-cache \
           --user $(id -u):$(id -g) \
-          {{.BUF_IMAGE}} generate
+          {{.BUF_IMAGE}} generate --include-imports
 
   tidy:
     desc: "Инициализация и обновление go.mod через Docker"
