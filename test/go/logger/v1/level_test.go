@@ -7,7 +7,7 @@ import (
 	"github.com/omcrgnt/proto/test/go/testutils"
 )
 
-func TestLoggerLevel_Validation(t *testing.T) {
+func TestLevel_Validation(t *testing.T) {
 	tests := []struct {
 		name   string
 		level  string
@@ -15,7 +15,7 @@ func TestLoggerLevel_Validation(t *testing.T) {
 	}{
 		{"valid_info", "info", true},
 		{"valid_error", "error", true},
-		{"invalid_caps", "DEBUG", false}, // не пройдет, так как в enum только строчные
+		{"invalid_caps", "DEBUG", false},
 		{"invalid_value", "fatal", false},
 		{"empty", "", false},
 		{"uppercase_fail", "INFO", false},
@@ -23,8 +23,7 @@ func TestLoggerLevel_Validation(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			// Используем новое имя LoggerLevel
-			testutils.ValidateCase(t, &loggerv1.LoggerLevel{Value: tt.level}, tt.passed)
+			testutils.ValidateCase(t, &loggerv1.Level{Value: tt.level}, tt.passed)
 		})
 	}
 }

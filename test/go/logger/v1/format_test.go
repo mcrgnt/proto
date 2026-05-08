@@ -7,7 +7,7 @@ import (
 	"github.com/omcrgnt/proto/test/go/testutils"
 )
 
-func TestLoggerFormat_Validation(t *testing.T) {
+func TestFormat_Validation(t *testing.T) {
 	tests := []struct {
 		name   string
 		format string
@@ -22,8 +22,7 @@ func TestLoggerFormat_Validation(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			// Используем новое имя LoggerFormat
-			testutils.ValidateCase(t, &loggerv1.LoggerFormat{Value: tt.format}, tt.passed)
+			testutils.ValidateCase(t, &loggerv1.Format{Value: tt.format}, tt.passed)
 		})
 	}
 }
