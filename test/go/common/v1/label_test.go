@@ -3,8 +3,8 @@ package commonv1_test
 import (
 	"testing"
 
-	commonv1 "github.com/mcrgnt/proto/gen/go/common/v1"
-	"github.com/mcrgnt/proto/test/go/testutils"
+	commonv1 "github.com/omcrgnt/proto/gen/go/common/v1"
+	"github.com/omcrgnt/proto/test/go/testutils"
 )
 
 func TestLabel_Validation(t *testing.T) {

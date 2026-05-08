@@ -48,7 +48,7 @@ tasks:
           -e GOPATH=/tmp/go-path \
           --user $(id -u):$(id -g) \
           golang:alpine \
-          sh -c "go mod init github.com/mcrgnt/proto/gen/go || true && go mod tidy"
+          sh -c "go mod init github.com/omcrgnt/proto/gen/go || true && go mod tidy"
 
   test:
     desc: "Запуск Go тестов через Docker"

@@ -1,4 +1,4 @@
-module github.com/mcrgnt/proto/gen/go
+module github.com/omcrgnt/proto/gen/go
 
 go 1.26.2
 

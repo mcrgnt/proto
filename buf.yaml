@@ -1,7 +1,7 @@
 version: v2
 modules:
   - path: proto
-    name: buf.build/mcrgnt/contracts # Теперь имя живет здесь
+    name: github.com/omcrgnt/proto
 deps:
   - buf.build/bufbuild/protovalidate
 lint:

@@ -3,9 +3,9 @@ package commonv1_test
 import (
 	"testing"
 
-	commonv1 "github.com/mcrgnt/proto/gen/go/common/v1"
+	commonv1 "github.com/omcrgnt/proto/gen/go/common/v1"
 
-	"github.com/mcrgnt/proto/test/go/testutils"
+	"github.com/omcrgnt/proto/test/go/testutils"
 )
 
 func TestHost_Validation(t *testing.T) {
