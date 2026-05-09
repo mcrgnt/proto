@@ -22,7 +22,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type LoggerFormat struct {
+type Format struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// value определяет формат сообщений.
 	// ВНИМАНИЕ: Поддерживается только нижний регистр (lowercase).
@@ -32,20 +32,20 @@ type LoggerFormat struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *LoggerFormat) Reset() {
-	*x = LoggerFormat{}
+func (x *Format) Reset() {
+	*x = Format{}
 	mi := &file_logger_v1_format_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *LoggerFormat) String() string {
+func (x *Format) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*LoggerFormat) ProtoMessage() {}
+func (*Format) ProtoMessage() {}
 
-func (x *LoggerFormat) ProtoReflect() protoreflect.Message {
+func (x *Format) ProtoReflect() protoreflect.Message {
 	mi := &file_logger_v1_format_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -57,12 +57,12 @@ func (x *LoggerFormat) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use LoggerFormat.ProtoReflect.Descriptor instead.
-func (*LoggerFormat) Descriptor() ([]byte, []int) {
+// Deprecated: Use Format.ProtoReflect.Descriptor instead.
+func (*Format) Descriptor() ([]byte, []int) {
 	return file_logger_v1_format_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *LoggerFormat) GetValue() string {
+func (x *Format) GetValue() string {
 	if x != nil {
 		return x.Value
 	}
@@ -73,8 +73,8 @@ var File_logger_v1_format_proto protoreflect.FileDescriptor
 
 const file_logger_v1_format_proto_rawDesc = "" +
 	"\n" +
-	"\x16logger/v1/format.proto\x12\tlogger.v1\x1a\x1bbuf/validate/validate.proto\"7\n" +
-	"\fLoggerFormat\x12'\n" +
+	"\x16logger/v1/format.proto\x12\tlogger.v1\x1a\x1bbuf/validate/validate.proto\"1\n" +
+	"\x06Format\x12'\n" +
 	"\x05value\x18\x01 \x01(\tB\x11\xbaH\x0er\fR\x04jsonR\x04textR\x05valueB\x8e\x01\n" +
 	"\rcom.logger.v1B\vFormatProtoP\x01Z+github.com/omcrgnt/proto/logger/v1;loggerv1\xa2\x02\x03LXX\xaa\x02\tLogger.V1\xca\x02\tLogger\\V1\xe2\x02\x15Logger\\V1\\GPBMetadata\xea\x02\n" +
 	"Logger::V1b\x06proto3"
@@ -93,7 +93,7 @@ func file_logger_v1_format_proto_rawDescGZIP() []byte {
 
 var file_logger_v1_format_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_logger_v1_format_proto_goTypes = []any{
-	(*LoggerFormat)(nil), // 0: logger.v1.LoggerFormat
+	(*Format)(nil), // 0: logger.v1.Format
 }
 var file_logger_v1_format_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

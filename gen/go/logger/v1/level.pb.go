@@ -22,7 +22,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type LoggerLevel struct {
+type Level struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// value определяет уровень детализации логов.
 	// ВНИМАНИЕ: Поддерживается только нижний регистр (lowercase).
@@ -32,20 +32,20 @@ type LoggerLevel struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *LoggerLevel) Reset() {
-	*x = LoggerLevel{}
+func (x *Level) Reset() {
+	*x = Level{}
 	mi := &file_logger_v1_level_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *LoggerLevel) String() string {
+func (x *Level) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*LoggerLevel) ProtoMessage() {}
+func (*Level) ProtoMessage() {}
 
-func (x *LoggerLevel) ProtoReflect() protoreflect.Message {
+func (x *Level) ProtoReflect() protoreflect.Message {
 	mi := &file_logger_v1_level_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -57,12 +57,12 @@ func (x *LoggerLevel) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use LoggerLevel.ProtoReflect.Descriptor instead.
-func (*LoggerLevel) Descriptor() ([]byte, []int) {
+// Deprecated: Use Level.ProtoReflect.Descriptor instead.
+func (*Level) Descriptor() ([]byte, []int) {
 	return file_logger_v1_level_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *LoggerLevel) GetValue() string {
+func (x *Level) GetValue() string {
 	if x != nil {
 		return x.Value
 	}
@@ -73,8 +73,8 @@ var File_logger_v1_level_proto protoreflect.FileDescriptor
 
 const file_logger_v1_level_proto_rawDesc = "" +
 	"\n" +
-	"\x15logger/v1/level.proto\x12\tlogger.v1\x1a\x1bbuf/validate/validate.proto\"D\n" +
-	"\vLoggerLevel\x125\n" +
+	"\x15logger/v1/level.proto\x12\tlogger.v1\x1a\x1bbuf/validate/validate.proto\">\n" +
+	"\x05Level\x125\n" +
 	"\x05value\x18\x01 \x01(\tB\x1f\xbaH\x1cr\x1aR\x05debugR\x04infoR\x04warnR\x05errorR\x05valueB\x8d\x01\n" +
 	"\rcom.logger.v1B\n" +
 	"LevelProtoP\x01Z+github.com/omcrgnt/proto/logger/v1;loggerv1\xa2\x02\x03LXX\xaa\x02\tLogger.V1\xca\x02\tLogger\\V1\xe2\x02\x15Logger\\V1\\GPBMetadata\xea\x02\n" +
@@ -94,7 +94,7 @@ func file_logger_v1_level_proto_rawDescGZIP() []byte {
 
 var file_logger_v1_level_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_logger_v1_level_proto_goTypes = []any{
-	(*LoggerLevel)(nil), // 0: logger.v1.LoggerLevel
+	(*Level)(nil), // 0: logger.v1.Level
 }
 var file_logger_v1_level_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
