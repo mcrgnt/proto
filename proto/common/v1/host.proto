@@ -3,7 +3,11 @@ syntax = "proto3";
 package common.v1;
 
 import "buf/validate/validate.proto";
+import "options/v1/options.proto";
 
 message Host {
-  string value = 1 [(buf.validate.field).string.address = true];
+  string value = 1 [
+    (buf.validate.field).string.address = true,
+    (options.v1.usage) = "URL или IP"
+  ];
 }

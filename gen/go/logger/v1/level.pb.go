@@ -8,6 +8,7 @@ package loggerv1
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
+	_ "github.com/omcrgnt/proto/gen/go/options/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -23,11 +24,8 @@ const (
 )
 
 type Level struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// value определяет уровень детализации логов.
-	// ВНИМАНИЕ: Поддерживается только нижний регистр (lowercase).
-	// Допустимые значения: "debug", "info", "warn", "error".
-	Value         string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -73,11 +71,11 @@ var File_logger_v1_level_proto protoreflect.FileDescriptor
 
 const file_logger_v1_level_proto_rawDesc = "" +
 	"\n" +
-	"\x15logger/v1/level.proto\x12\tlogger.v1\x1a\x1bbuf/validate/validate.proto\">\n" +
-	"\x05Level\x125\n" +
-	"\x05value\x18\x01 \x01(\tB\x1f\xbaH\x1cr\x1aR\x05debugR\x04infoR\x04warnR\x05errorR\x05valueB\x8d\x01\n" +
+	"\x15logger/v1/level.proto\x12\tlogger.v1\x1a\x1bbuf/validate/validate.proto\x1a\x18options/v1/options.proto\"\xac\x01\n" +
+	"\x05Level\x12\xa2\x01\n" +
+	"\x05value\x18\x01 \x01(\tB\x8b\x01\xbaH\x1cr\x1aR\x05debugR\x04infoR\x04warnR\x05error\x8a\xb5\x18hУровень детализации логов (нижний регистр): debug, info, warn, errorR\x05valueB\x94\x01\n" +
 	"\rcom.logger.v1B\n" +
-	"LevelProtoP\x01Z+github.com/omcrgnt/proto/logger/v1;loggerv1\xa2\x02\x03LXX\xaa\x02\tLogger.V1\xca\x02\tLogger\\V1\xe2\x02\x15Logger\\V1\\GPBMetadata\xea\x02\n" +
+	"LevelProtoP\x01Z2github.com/omcrgnt/proto/gen/go/logger/v1;loggerv1\xa2\x02\x03LXX\xaa\x02\tLogger.V1\xca\x02\tLogger\\V1\xe2\x02\x15Logger\\V1\\GPBMetadata\xea\x02\n" +
 	"Logger::V1b\x06proto3"
 
 var (

@@ -3,12 +3,13 @@ syntax = "proto3";
 package logger.v1;
 
 import "buf/validate/validate.proto";
+import "options/v1/options.proto";
 
 message Format {
-  // value определяет формат сообщений.
-  // ВНИМАНИЕ: Поддерживается только нижний регистр (lowercase).
-  // Допустимые значения: "json", "text".
-  string value = 1 [(buf.validate.field).string = {
-    in: ["json", "text"]
-  }];
+  string value = 1 [
+    (buf.validate.field).string = {
+      in: ["json", "text"]
+    },
+    (options.v1.usage) = "Формат сообщений логов (нижний регистр): json, text"
+  ];
 }

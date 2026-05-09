@@ -3,9 +3,13 @@ syntax = "proto3";
 package common.v1;
 
 import "buf/validate/validate.proto";
+import "options/v1/options.proto";
 
 message Label {
-  string value = 1 [(buf.validate.field).string = {
-    pattern: "^[a-z][a-z0-9_]{1,31}$"
-  }];
+  string value = 1 [
+    (buf.validate.field).string = {
+      pattern: "^[a-z][a-z0-9_]{1,31}$"
+    },
+    (options.v1.usage) = "Метка сущности: по шаблону ^[a-z][a-z0-9_]{1,31}$"
+  ];
 }
