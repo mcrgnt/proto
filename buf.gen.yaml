@@ -4,15 +4,13 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      # Замените на ваш реальный путь
-      value: ://gitlab.com 
+      value: github.com/omcrgnt/proto
   disable:
-    # Это критически важно для работы protovalidate
     - file_option: go_package
       module: buf.build/bufbuild/protovalidate
 
 plugins:
-  - remote: buf.build/protocolbuffers/go:v1.34.1
+  - remote: buf.build/protocolbuffers/go:v1.36.11
     out: gen/go
     opt:
       - paths=source_relative

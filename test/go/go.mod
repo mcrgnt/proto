@@ -1,14 +1,14 @@
-module github.com/mcrgnt/proto/test/go
+module github.com/omcrgnt/proto/test/go
 
 go 1.26.2
 
-replace github.com/mcrgnt/proto/gen/go => ../../gen/go
+replace github.com/omcrgnt/proto/gen/go => ../../gen/go
 
-replace github.com/mcrgnt/proto/test/go => ../../test/go
+replace github.com/omcrgnt/proto/test/go => ../../test/go
 
 require (
 	buf.build/go/protovalidate v1.2.0
-	github.com/mcrgnt/proto/gen/go v0.0.0-00010101000000-000000000000
+	github.com/omcrgnt/proto/gen/go v0.0.0-00010101000000-000000000000
 	github.com/stretchr/testify v1.11.1
 	google.golang.org/protobuf v1.36.11
 )

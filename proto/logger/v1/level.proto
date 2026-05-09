@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package logger.v1;
+
+import "buf/validate/validate.proto";
+
+message LoggerLevel {
+  // value определяет уровень детализации логов.
+  // ВНИМАНИЕ: Поддерживается только нижний регистр (lowercase).
+  // Допустимые значения: "debug", "info", "warn", "error".
+  string value = 1 [(buf.validate.field).string = {
+    in: ["debug", "info", "warn", "error"]
+  }];
+}
