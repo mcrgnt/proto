@@ -8,6 +8,7 @@ package loggerv1
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
+	_ "github.com/omcrgnt/proto/gen/go/options/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -23,11 +24,8 @@ const (
 )
 
 type Format struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// value определяет формат сообщений.
-	// ВНИМАНИЕ: Поддерживается только нижний регистр (lowercase).
-	// Допустимые значения: "json", "text".
-	Value         string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -73,10 +71,10 @@ var File_logger_v1_format_proto protoreflect.FileDescriptor
 
 const file_logger_v1_format_proto_rawDesc = "" +
 	"\n" +
-	"\x16logger/v1/format.proto\x12\tlogger.v1\x1a\x1bbuf/validate/validate.proto\"1\n" +
-	"\x06Format\x12'\n" +
-	"\x05value\x18\x01 \x01(\tB\x11\xbaH\x0er\fR\x04jsonR\x04textR\x05valueB\x8e\x01\n" +
-	"\rcom.logger.v1B\vFormatProtoP\x01Z+github.com/omcrgnt/proto/logger/v1;loggerv1\xa2\x02\x03LXX\xaa\x02\tLogger.V1\xca\x02\tLogger\\V1\xe2\x02\x15Logger\\V1\\GPBMetadata\xea\x02\n" +
+	"\x16logger/v1/format.proto\x12\tlogger.v1\x1a\x1bbuf/validate/validate.proto\x1a\x18options/v1/options.proto\"\x89\x01\n" +
+	"\x06Format\x12\x7f\n" +
+	"\x05value\x18\x01 \x01(\tBi\xbaH\x0er\fR\x04jsonR\x04text\x8a\xb5\x18TФормат сообщений логов (нижний регистр): json, textR\x05valueB\x95\x01\n" +
+	"\rcom.logger.v1B\vFormatProtoP\x01Z2github.com/omcrgnt/proto/gen/go/logger/v1;loggerv1\xa2\x02\x03LXX\xaa\x02\tLogger.V1\xca\x02\tLogger\\V1\xe2\x02\x15Logger\\V1\\GPBMetadata\xea\x02\n" +
 	"Logger::V1b\x06proto3"
 
 var (

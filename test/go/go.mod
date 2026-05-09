@@ -8,7 +8,7 @@ replace github.com/omcrgnt/proto/test/go => ../../test/go
 
 require (
 	buf.build/go/protovalidate v1.2.0
-	github.com/omcrgnt/proto/gen/go v0.0.0-00010101000000-000000000000
+	github.com/omcrgnt/proto/gen/go v0.2.1
 	github.com/stretchr/testify v1.11.1
 	google.golang.org/protobuf v1.36.11
 )

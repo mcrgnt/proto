@@ -8,6 +8,7 @@ package commonv1
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
+	_ "github.com/omcrgnt/proto/gen/go/options/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -70,11 +71,11 @@ var File_common_v1_label_proto protoreflect.FileDescriptor
 
 const file_common_v1_label_proto_rawDesc = "" +
 	"\n" +
-	"\x15common/v1/label.proto\x12\tcommon.v1\x1a\x1bbuf/validate/validate.proto\"<\n" +
-	"\x05Label\x123\n" +
-	"\x05value\x18\x01 \x01(\tB\x1d\xbaH\x1ar\x182\x16^[a-z][a-z0-9_]{1,31}$R\x05valueB\x8d\x01\n" +
+	"\x15common/v1/label.proto\x12\tcommon.v1\x1a\x1bbuf/validate/validate.proto\x1a\x18options/v1/options.proto\"\x87\x01\n" +
+	"\x05Label\x12~\n" +
+	"\x05value\x18\x01 \x01(\tBh\xbaH\x1ar\x182\x16^[a-z][a-z0-9_]{1,31}$\x8a\xb5\x18GМетка сущности: по шаблону ^[a-z][a-z0-9_]{1,31}$R\x05valueB\x94\x01\n" +
 	"\rcom.common.v1B\n" +
-	"LabelProtoP\x01Z+github.com/omcrgnt/proto/common/v1;commonv1\xa2\x02\x03CXX\xaa\x02\tCommon.V1\xca\x02\tCommon\\V1\xe2\x02\x15Common\\V1\\GPBMetadata\xea\x02\n" +
+	"LabelProtoP\x01Z2github.com/omcrgnt/proto/gen/go/common/v1;commonv1\xa2\x02\x03CXX\xaa\x02\tCommon.V1\xca\x02\tCommon\\V1\xe2\x02\x15Common\\V1\\GPBMetadata\xea\x02\n" +
 	"Common::V1b\x06proto3"
 
 var (
