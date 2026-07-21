@@ -11,6 +11,7 @@ import (
 	optionsv1 "github.com/omcrgnt/proto/gen/go/options/v1"
 
 	_ "github.com/omcrgnt/proto/gen/go/common/v1"
+	_ "github.com/omcrgnt/proto/gen/go/http/v1"
 	_ "github.com/omcrgnt/proto/gen/go/logger/v1"
 )
 
