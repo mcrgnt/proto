@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package http.v1;
+
+import "buf/validate/validate.proto";
+import "options/v1/options.proto";
+
+message URL {
+  string value = 1 [
+    (buf.validate.field).string.uri = true,
+    (buf.validate.field).cel = {
+      id: "http.url.scheme"
+      message: "must be http or https URL"
+      expression: "this.startsWith('http://') || this.startsWith('https://')"
+    },
+    (options.v1.usage) = "Absolute http(s) URL (e.g. http://127.0.0.1:9000)"
+  ];
+}
